@@ -1,0 +1,34 @@
+{
+  "name": "minimal-assertion-helpers",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "provides few test helpers",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "check_types": "tsc --noEmit --project .",
+    "prettier": "npx prettier --write ."
+  },
+  "keywords": [
+    "minimal",
+    "test",
+    "assertion",
+    "type-guard",
+    "helpers"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fibo/minimal-assertion-helpers.git"
+  },
+  "author": "Gianluca Casati (https://fibo.github.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "typescript": "^5.2.2"
+  }
+}
