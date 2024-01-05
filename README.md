@@ -7,7 +7,7 @@ This package is implemented with ECMAScript modules. CommonJS is not supported.
 ## Synopsis
 
 ```ts
-import { describe, test } from "node:test"
+import { test } from "node:test"
 import { MaybeObject, objectTypeGuard } from "minimal-type-guard-helpers"
 import { assertEqual } from "minimal-assertion-helpers"
 
@@ -17,27 +17,25 @@ const isFoo = objectTypeGuard<Foo>(({ bar }) => {
   return typeof bar === "string"
 })
 
-describe("isFoo", () => {
-  test("validates Foo", () => {
-    assertEqual<MaybeObject<Foo>, boolean>(isFoo, [
-      {
-        input: {
-          foo: "string"
-        },
-        output: true
+test("isFoo", () => {
+  assertEqual<MaybeObject<Foo>, boolean>(isFoo, [
+    {
+      input: {
+        foo: "string"
       },
-      {
-        input: {
-          foo: 42
-        },
-        output: false
+      output: true
+    },
+    {
+      input: {
+        foo: 42
       },
-      {
-        input: {},
-        output: false
-      }
-    ])
-  })
+      output: false
+    },
+    {
+      input: {},
+      output: false
+    }
+  ])
 })
 ```
 
